@@ -43,6 +43,7 @@ public class SqsConfiguration {
     private Integer waitTimeSeconds;
     private Integer defaultVisibilityTimeout;
     private Boolean extendMessageVisibility = Boolean.FALSE;
+    private Integer concurrentConsumers = 1;
 
     // producer properties
     private Integer delaySeconds;
@@ -224,6 +225,14 @@ public class SqsConfiguration {
         this.region = region;
     }
 
+    public Integer getConcurrentConsumers() {
+        return concurrentConsumers;
+    }
+
+    public void setConcurrentConsumers(Integer concurrentConsumers) {
+        this.concurrentConsumers = concurrentConsumers;
+    }
+
     @Override
     public String toString() {
         return "SqsConfiguration[queueName=" + queueName
@@ -245,6 +254,7 @@ public class SqsConfiguration {
             + ", redrivePolicy=" + redrivePolicy
             + ", extendMessageVisibility=" + extendMessageVisibility
             + ", queueOwnerAWSAccountId=" + queueOwnerAWSAccountId
+            + ", concurrentConsumers=" + concurrentConsumers
             + ", region=" + region
             + "]";
     }
